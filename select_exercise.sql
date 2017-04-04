@@ -1,15 +1,15 @@
 USE codeup_test_db;
 
-SELECT artist, name FROM albums WHERE artist = 'Pink Floyd';
+SELECT name FROM albums WHERE artist = 'Pink Floyd';
 
-SELECT artist, name, release_date FROM albums WHERE release_date = '1967';
+SELECT release_date FROM albums WHERE name = "Sgt. Peppers Lonely Hearts Club Band";
 
-SELECT artist, name, genre FROM albums WHERE genre = "Grunge, Alternative Rock";
+SELECT genre FROM albums WHERE name = "Nevermind";
 
-SELECT artist, name, release_date FROM albums WHERE release_date >= "1990" AND release_date <= "1999";
+SELECT name FROM albums WHERE release_date BETWEEN 1990 AND 1999;
 
-SELECT * FROM albums WHERE sales < 20000000;
+SELECT name FROM albums WHERE sales < 20000000;
 
 -- SELECT * FROM albums WHERE genre REGEXP '[[:<:]]Rock[[:>:]]';
 
-SELECT artist, name, genre FROM albums WHERE genre LIKE '%Rock%';
+SELECT name FROM albums WHERE genre LIKE '%Rock%' or genre LIKE '%rock%';
