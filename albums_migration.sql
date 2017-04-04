@@ -6,8 +6,10 @@
  	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
  	artist VARCHAR(150) NOT NULL DEFAULT 'UNKNOWN',
  	name VARCHAR(150) NOT NULL DEFAULT 'UNKNOWN',
- 	release_date INT,
+ 	release_date DATE,
  	sales DECIMAL(12,2),
  	genre CHAR(255) NOT NULL DEFAULT 'UNKNOWN',
  	PRIMARY KEY (id)
  );
+
+ -- Migrations are files that control the structure of a table
