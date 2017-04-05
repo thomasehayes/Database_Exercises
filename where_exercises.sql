@@ -1,4 +1,4 @@
-USE employee.sql
+USE employees;
 
 SELECT first_name
 FROM employees
