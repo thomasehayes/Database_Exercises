@@ -5,7 +5,7 @@ FROM employees
 Where first_name IN ('Irena', 'Vidya', 'Maya')
 GROUP BY gender;
 
-SELECT *
+SELECT CONCAT(first_name, ' ', last_name)
 FROM employees
 Where last_name like 'E%' AND last_name like '%E'
 ORDER BY emp_no DESC;
