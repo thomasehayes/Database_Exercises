@@ -8,3 +8,8 @@ SELECT *
 FROM employees
 Where last_name like 'E%' AND last_name like '%E'
 GROUP BY first_name, last_name;
+
+SELECT DISTINCT last_name 
+FROM employees
+Where last_name LIKE '%q%'
+	AND last_name NOT LIKE '%qu%';
