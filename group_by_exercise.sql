@@ -6,7 +6,7 @@ GROUP BY title;
 
 SELECT *
 FROM employees
-Where last_name like 'E%' AND last_name like '%E'
+Where last_name like 'E%E'
 GROUP BY first_name, last_name;
 
 SELECT DISTINCT last_name 
