@@ -22,3 +22,7 @@ Where last_name LIKE '%q%'
 	AND last_name NOT LIKE '%qu%'
 GROUP BY last_name, first_name
 ORDER BY CONCAT(count(*),' ', first_name, ' ', last_name) DESC;
+
+SELECT CONCAT(last_name, ', ', first_name) as full_name
+from employees
+limit 10;
