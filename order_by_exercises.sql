@@ -15,3 +15,8 @@ OR first_name = 'Vidya'
 OR first_name ='Maya')
 AND gender = 'M'
 ORDER BY last_name, first_name;
+
+SELECT *
+FROM employees
+Where last_name like 'E%' AND last_name like '%E'
+ORDER BY emp_no;
