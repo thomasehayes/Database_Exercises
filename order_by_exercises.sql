@@ -2,10 +2,8 @@ USE employees;
 
 SELECT *
 FROM employees
-Where (first_name ='Irena'
-OR first_name = 'Vidya' 
-OR first_name ='Maya')
-AND gender = 'M'
+Where first_name IN ('Irena', 'Vidya', 'Maya')
+	AND gender = 'M'
 ORDER BY last_name DESC, first_name;
 
 SELECT *
@@ -16,5 +14,5 @@ ORDER BY emp_no DESC;
 SELECT *
 FROM employees
 Where birth_date LIKE '%12-25'
-AND (hire_date BETWEEN '1990-01-01' AND '1999-12-31')
+	AND (hire_date BETWEEN '1990-01-01' AND '1999-12-31')
 ORDER BY birth_date, hire_date DESC;
