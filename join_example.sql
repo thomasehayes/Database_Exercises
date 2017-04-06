@@ -48,3 +48,29 @@ JOIN departments ON dept_emp.dept_no = departments.dept_no
 JOIN dept_manager ON departments.dept_no = dept_manager.dept_no
 JOIN employees AS manager ON manager.emp_no = dept_manager.emp_no
 WHERE dept_emp.to_date > now() AND dept_manager.to_date > now();
+
+
+-- Bonus Exercises:
+-- Using what you know about writing SQL Queries, write joins/queries that 
+-- answer the following questions:
+--       1. Historic average salary of female managers vs. male managers
+--       2. Current average salary of female managers vs. male managers
+--       3. Historic average salary of female workers vs. male workers
+        
+--       4. Current average salary of female workers vs. male workers
+--       5. Current count of female managers vs male managers
+SELECT count(concat(dm.emp_no)) AS 'Department Manager', gender AS "Gender"
+FROM employees AS e
+JOIN dept_manager AS dm ON dm.emp_no = e.emp_no
+JOIN departments AS dept ON dept.dept_no = dm.dept_no
+WHERE dm.to_date > now() 
+GROUP BY gender;
+--       6. Current count of female engineers vs. male engineers
+SELECT count(t.emp_no) AS 'Engineers', gender AS "Gender"
+FROM employees AS e
+JOIN titles AS t ON t.emp_no = e.emp_no
+WHERE t.to_date > now() AND t.title LIKE '%engineer%'
+GROUP BY gender
+ORDER BY gender DESC;
+
+
