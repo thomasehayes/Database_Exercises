@@ -26,3 +26,17 @@ FROM employees
 JOIN dept_manager ON dept_manager.emp_no = employees.emp_no
 JOIN departments ON departments.dept_no = dept_manager.dept_no
 WHERE dept_manager.to_date > now() AND gender ='F';
+
+SELECT title AS "Titles", count(title) AS "Count"
+FROM titles
+JOIN dept_emp ON titles.emp_no =dept_emp.emp_no
+JOIN departments ON dept_emp.dept_no = departments.dept_no
+WHERE departments.dept_no = 'd009' AND titles.to_date > now()
+GROUP BY title;
+
+SELECT departments.dept_name AS 'Department Name', concat(employees.first_name, ' ', employees.last_name) AS 'Department Manager', salaries.salary AS Salary
+FROM employees
+JOIN dept_manager ON dept_manager.emp_no = employees.emp_no
+JOIN salaries ON salaries.emp_no = dept_manager.emp_no
+JOIN departments ON departments.dept_no = dept_manager.dept_no
+WHERE dept_manager.to_date > now() AND salaries.to_date > now();
