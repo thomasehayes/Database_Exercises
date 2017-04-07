@@ -21,12 +21,12 @@ WHERE emp_no IN (
 );
 
 	-- Find all the department managers that are female.
-SELECT emp_no AS 'Female Manager'
-FROM dept_manager
-WHERE emp_no IN (
+SELECT first_name, last_name
+FROM employees
+WHERE gender = 'F' 
+AND emp_no IN (
 	SELECT emp_no
-	FROM employees
-	WHERE gender = "F"
+	FROM dept_manager
 );
 
 	-- BONUS Find all the department names that have female managers.
