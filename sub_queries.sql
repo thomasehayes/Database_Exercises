@@ -3,7 +3,7 @@ use employees;
 -- Craft queries to return the results for the following criteria:
 
 	-- Find all the employees with the same hire date as employee 101010 using a sub-query.
-SELECT * 
+SELECT concat(first_name, ' ', last_name) AS 'Name'
 FROM employees
 WHERE hire_date IN (
 	SELECT hire_date
@@ -21,6 +21,21 @@ WHERE emp_no IN (
 );
 
 	-- Find all the department managers that are female.
-
+SELECT emp_no AS 'Female Manager'
+FROM dept_manager
+WHERE emp_no IN (
+	SELECT emp_no
+	FROM employees
+	WHERE gender = "F"
+);
 
 	-- BONUS Find all the department names that have female managers.
+SELECT dept_name AS "Department Name"
+FROM departments
+WHERE dept_no IN (
+	SELECT dept_no
+	FROM dept_manager
+	WHERE emp_no IN (
+		SELECT emp_no
+		FROM employees
+		WHERE gender = "F"));
